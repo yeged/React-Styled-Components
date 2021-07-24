@@ -6,9 +6,9 @@ import PrimaryButton, {SecondaryButton, TertiaryButton} from "./components/Butto
 const App = () => {
     return (
         <div>
-            <PrimaryButton>Hello</PrimaryButton>
-            <SecondaryButton>Hello World</SecondaryButton>
-            <TertiaryButton>Hellow Fellas</TertiaryButton>
+            <PrimaryButton disabled>Hello</PrimaryButton>
+            <SecondaryButton disabled>Hello World</SecondaryButton>
+            <TertiaryButton disabled>Hellow Fellas</TertiaryButton>
         </div>
     )
 }
