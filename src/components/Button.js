@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {defaultTheme, typeScale } from "../utils"
+import { typeScale } from "../utils"
 import {applyStyleModifiers} from "styled-components-modifiers"
 
 const BUTTON_MODIFIERS = {
@@ -11,27 +11,27 @@ const BUTTON_MODIFIERS = {
       font-size: ${typeScale.header5};
       padding: 16px 24px;
     `,
-    warning: () => `
+    warning: ({theme}) => `
       background: none;
-      color: ${defaultTheme.status.warningColor};
+      color: ${theme.status.warningColor};
 
       &:hover, &:focus {
-      background-color: ${defaultTheme.status.warningColorHover};
-      outline: 3px solid ${defaultTheme.status.warningColorHover};
+      background-color: ${theme.status.warningColorHover};
+      outline: 3px solid ${theme.status.warningColorHover};
       outline-offset: 2px;
       border: 2px solid transparent;
       }
 
       &:active {
-       background-color: ${defaultTheme.status.warningColorActive};
+       background-color: ${theme.status.warningColorActive};
       }
     `,
-    primaryButtonWarning: () => `
-      background-color: ${defaultTheme.status.warningColor};
-      color: ${defaultTheme.textColorInverted};
+    primaryButtonWarning: ({theme}) => `
+      background-color: ${theme.status.warningColor};
+      color: ${theme.textColorInverted};
     `,
-    secondaryButtonWarning: () => `
-      border: 2px solid ${defaultTheme.status.warningColor};
+    secondaryButtonWarning: ({theme}) => `
+      border: 2px solid ${theme.status.warningColor};
     `,
   };
 
@@ -41,31 +41,32 @@ const Button = styled.button`
     border-radius: 8px;
     min-width: 100px;
     cursor: pointer;
-    font-family: "Roboto Mono", monospace;
+    font-family: ${props => props.theme.primaryFont};
+    transition: background-color 0.2s linear, color 0.2s linear;
 
     &:hover{
-        background-color: ${defaultTheme.primaryHoverColor};
-        color: ${defaultTheme.textColorOnPrimary};
+        background-color: ${props => props.theme.primaryHoverColor};
+        color: ${props => props.theme.textColorOnPrimary};
     }
 
     &:focus{
-        outline: 3px solid ${defaultTheme.primaryHoverColor};
+        outline: 3px solid ${props => props.theme.primaryHoverColor};
         outline-offset: 2px;
     }
 
     &:active{
-        background-color: ${defaultTheme.primaryActiveColor}
+        background-color: ${props => props.theme.primaryActiveColor}
     }
 `
 
 const PrimaryButton = styled(Button)`
-    background-color: ${defaultTheme.primaryColor};
+    background-color: ${props => props.theme.primaryColor};
     border:none;
     color: white;
 
     &:disabled{
-        background-color: ${defaultTheme.disabled};
-        color: ${defaultTheme.textOnDisabled};
+        background-color: ${props => props.theme.disabled};
+        color: ${props => props.theme.textOnDisabled};
         cursor: not-allowed;
     }
     ${applyStyleModifiers(BUTTON_MODIFIERS)};
@@ -73,13 +74,13 @@ const PrimaryButton = styled(Button)`
 
 export const SecondaryButton = styled(Button)`
    background: none;
-   border: 2px solid ${defaultTheme.primaryColor};
-   color: ${defaultTheme.primaryColor};
+   border: 2px solid ${props => props.theme.primaryColor};
+   color: ${props => props.theme.primaryColor};
 
    &:disabled{
         background: none;
-        border-color: ${defaultTheme.disabled};
-        color: ${defaultTheme.textOnDisabled};
+        border-color: ${props => props.theme.disabled};
+        color: ${props => props.theme.textOnDisabled};
         cursor: not-allowed;
     }
     ${applyStyleModifiers(BUTTON_MODIFIERS)};
@@ -88,11 +89,11 @@ export const SecondaryButton = styled(Button)`
 export const TertiaryButton = styled(Button)`
    background: none;
    border: none;
-   color: ${defaultTheme.primaryColor};
+   color: ${props => props.theme.primaryColor};
 
    &:disabled{
         background: none;
-        color: ${defaultTheme.textOnDisabled};
+        color: ${props => props.theme.textOnDisabled};
         cursor: not-allowed;
     }
     ${applyStyleModifiers(BUTTON_MODIFIERS)};
