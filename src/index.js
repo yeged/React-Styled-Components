@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import {ThemeProvider} from "styled-components"
-import PrimaryButton, {SecondaryButton, TertiaryButton} from "./components/Button";
+import {PrimaryButton, SecondaryButton, TertiaryButton, SignUpModal} from "./components";
 import {darkTheme, defaultTheme} from "./utils"
 
 const App = () => {
@@ -34,15 +34,17 @@ const App = () => {
             justifyContent: "space-around",
           }}
         >
-          <PrimaryButton modifiers={["small", "warning", "primaryButtonWarning"]}>
-            Hello
-          </PrimaryButton>
-          <SecondaryButton modifiers={["large", "warning", "secondaryButtonWarning"]}>
-            Hello World
-          </SecondaryButton>
-          <TertiaryButton>Hellow Fellas</TertiaryButton>
-        </div>
-      </ThemeProvider>
+         <SignUpModal />
+         </div>
+       </ThemeProvider>
+    //       <PrimaryButton modifiers={["small", "warning", "primaryButtonWarning"]}>
+    //         Hello
+    //       </PrimaryButton>
+    //       <SecondaryButton modifiers={["large", "warning", "secondaryButtonWarning"]}>
+    //         Hello World
+    //       </SecondaryButton>
+    //       <TertiaryButton>Hellow Fellas</TertiaryButton>
+       
     )
 }
 
