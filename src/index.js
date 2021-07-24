@@ -6,9 +6,9 @@ import PrimaryButton, {SecondaryButton, TertiaryButton} from "./components/Butto
 const App = () => {
     return (
         <div>
-            <PrimaryButton disabled>Hello</PrimaryButton>
-            <SecondaryButton disabled>Hello World</SecondaryButton>
-            <TertiaryButton disabled>Hellow Fellas</TertiaryButton>
+            <PrimaryButton modifiers={["small", "warning", "primaryButtonWarning"]}>Hello</PrimaryButton>
+            <SecondaryButton modifiers={["large", "warning", "secondaryButtonWarning"]} >Hello World</SecondaryButton>
+            <TertiaryButton>Hellow Fellas</TertiaryButton>
         </div>
     )
 }
