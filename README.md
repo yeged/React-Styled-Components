@@ -114,9 +114,6 @@ const BUTTON_MODIFIERS = {
       background-color: ${theme.status.warningColor};
       color: ${theme.textColorInverted};
     `,
-    secondaryButtonWarning: ({theme}) => `
-      border: 2px solid ${theme.status.warningColor};
-    `,
   };
 ````
 
